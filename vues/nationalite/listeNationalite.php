@@ -57,10 +57,10 @@
             echo "<td>" . $nationalite->libNation . "</td>";
             echo "<td>" . $nationalite->libContinent . "</td>";
             echo "<td>
-                    <a href='index.php?uc=nationalite&action=update&num=" . $nationalite->numero . "' class='btn btn-success'>
+                    <a href='index.php?uc=nationalite&action=update&num=". $nationalite->numero ."' class='btn btn-success'>
                       <img src='./images/modifier.svg'>
                     </a>
-                    <a href='#modalSupp' data-toggle='modal' data-message='Êtes-vous sûr de vouloir supprimer cette nationalité ?' data-supp='index.php?uc=nationalites&action=delete&num=" . $nationalite->numero . "' class='btn btn-danger'>
+                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer cette nationalitée ?' data-suppr='index.php?uc=nationalite&action=delete&num=$nationalite->numero' class='btn btn-danger'>
                       <img src='./Images/supp.svg'><i class='fas fa-plus-circle'></i>
                     </a>
                   </td>";
