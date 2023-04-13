@@ -5,7 +5,7 @@
       <h2>Liste des Nationalités</h2>
     </div>
     <div class="col-3">
-      <a href="index.php?uc=nationalite&action=add" class='btn btn-success'>
+      <a href="index.php?uc=auteurs&action=add" class='btn btn-success'>
         <img src="./images/plus-circle.svg" width="20"><i class="fas fa-plus-circle"></i> Créer une nationalité
       </a>
     </div>
@@ -13,19 +13,19 @@
 
   <br>
 
-  <form action="index.php?uc=nationalite&action=list" method="post" class="border border-primary rounded p-3">
+  <form action="index.php?uc=auteurs&action=list" method="post" class="border border-primary rounded p-3">
 
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" id="libelle" placeholder="Saisir le libellé" name="libelle" value="<?php echo $libelle; ?>">
+        <input type="text" class="form-control" id="libelle" placeholder="Saisir le libellé" name="nom" value="<?php echo $nom; ?>">
       </div>
       <div class="col">
         <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
           <?php      
             echo "<option value='Tous'> Tous les continents</option>";
             foreach($lesContinents as $continent) {
-              $selection = $continent->getNum() == intval($continentSel) ? 'selected' : '';
-              echo "<option value='" . $continent->getNum() . "' " . $selection . ">" . $continent->getLibelle() . "</option>";
+              $selection = $nationalite->getNum() == intval($nationaliteSel) ? 'selected' : '';
+              echo "<option value='" . $nationalite->getNum() . "' " . $selection . ">" . $nationalite->getNom() . "</option>";
             }
           ?>
         </select>
@@ -43,24 +43,26 @@
       <thead>
         <tr>
           <th class="col-md-2"><strong>Numéro</strong></th>
-          <th class="col-md-4"><strong>Libellé</strong></th>
-          <th class="col-md-3"><strong>Continent</strong></th>
+          <th class="col-md-4"><strong>Nom</strong></th>
+          <th class="col-md-3"><strong>Prenom</strong></th>
+          <th class="col-md-2"><strong>Nationalites</strong></th>
           <th class="col-md-2"><strong>Actions</strong></th>
         </tr>
       </thead>
       <tbody>
         <?php
           // Afficher la requête nationalite
-          foreach($lesNationalites as $nationalite) {
+          foreach($lesAuteurs as $auteur) {
             echo "<tr>";
-            echo "<td>" . $nationalite->numero . "</td>";
-            echo "<td>" . $nationalite->libNation . "</td>";
-            echo "<td>" . $nationalite->libContinent . "</td>";
+            echo "<td>" . $auteur->nom . "</td>";
+            echo "<td>" . $nationalite->nom . "</td>";
+            echo "<td>" . $nationalite->prenom . "</td>";
+            echo "<td>" . $nationalite->libNationalite . "</td>";
             echo "<td>
-                    <a href='index.php?uc=nationalite&action=update&num=". $nationalite->numero ."' class='btn btn-success'>
+                    <a href='index.php?uc=auteurs&action=update&num=". $nationalite->numero ."' class='btn btn-success'>
                       <img src='./images/modifier.svg'>
                     </a>
-                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer cette nationalitée ?' data-suppr='index.php?uc=nationalite&action=delete&num=$nationalite->numero' class='btn btn-danger'>
+                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer cette Auteur ?' data-suppr='index.php?uc=auteurs&action=delete&num=$nationalite->numero' class='btn btn-danger'>
                       <img src='./images/supp.svg'><i class='fas fa-plus-circle'></i>
                     </a>
                   </td>";

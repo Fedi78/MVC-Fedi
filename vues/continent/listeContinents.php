@@ -2,7 +2,7 @@
       <div class="row pt-4">
 
 <div class="col-9"><h2>Liste des Continents</h2></div>
-<div class="col-3"><a href="index.php?uc=continents&action=add" class='btn btn-success'><i class="fas fa-plus-circle"> <img src="./Images/plus-circle.svg" width="20" >  </i>Créer un Continent</a></div>
+<div class="col-3"><a href="index.php?uc=continents&action=add" class='btn btn-success'><i class="fas fa-plus-circle"> <img src="./images/plus-circle.svg" width="20" >  </i>Créer un Continent</a></div>
  
 </div>    
       <table class="table table-hover table-striped">
@@ -21,7 +21,7 @@
               echo "<td class='col-md-2'>".$continent->getNum()."</td>";
               echo "<td class='col-md-8'>".$continent->getLibelle()."</td>";
               echo "<td class='col-md-2'><a href='index.php?uc=continents&action=update&num=".$continent->getNum()."' class='btn btn-primary'><img src='./images/modifier.svg'><i class='fas fa-pen'></i></a>
-                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer ce continent ?' data-suppr='index.php?uc=continents&action=delete&num=".$continent->getNum()."' class='btn btn-danger'><img src='./Images/supp.svg'><i class='far fa-trash-alt'></i></a></td>";
+                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer ce continent ?' data-suppr='index.php?uc=continents&action=delete&num=".$continent->getNum()."' class='btn btn-danger'><img src='./images/supp.svg'><i class='far fa-trash-alt'></i></a></td>";
               echo "</tr>";
           }
           ?>

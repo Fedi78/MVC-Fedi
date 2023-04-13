@@ -38,9 +38,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des auteurs</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Liste des auteurs</a>
-              <a class="dropdown-item" href="#">ajouter un auteurs</a>
-              <a class="dropdown-item" href="#">Rechercher un auteurs</a>
+              <a class="dropdown-item" href="index.php?uc=auteurs&action=list">Liste des auteurs</a>
+              <a class="dropdown-item" href="index.php?uc=auteurs&action=add">ajouter un auteurs</a>
             </div>
           </li>
           <li class="nav-item dropdown">
