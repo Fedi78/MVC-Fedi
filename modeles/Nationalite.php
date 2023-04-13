@@ -96,7 +96,7 @@ public static function add(Nationalite $nationalite) :int
 
 public static function update(Nationalite $nationalite) :int  
 {
-    $req = MonPdo::getInstance()->prepare("UPDATE nationalite SET libelle = :libelle, numContinent = :numContinent WHERE num = :id");
+    $req = MonPdo::getInstance()->prepare("UPDATE nationalite set libelle = :libelle, numContinent = :numContinent WHERE num = :id");
     $req->bindParam(':numContinent', $nationalite->getNumContinent());
     $req->bindParam(':id', $nationalite->getNum());
     $req->bindParam(':libelle', $nationalite->getLibelle());

@@ -1,7 +1,7 @@
 <div class="container">
 <h2 class='pt-4 text-center'><?php echo $mode ?> Un Auteur</h2>
 <div class="formulaire"> 
-<form action="index.php?uc=auteurs&action=validForm" method="post">
+<form action="index.php?uc=auteurs&action=validerForm" method="post">
 
 <div class="form-group">
     <label for="nom">Nom</label>

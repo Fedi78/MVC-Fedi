@@ -2,11 +2,11 @@
 
 class Auteur{
 
-private $num;
-private $nom;
-private $numNationalite;
-private $prenom;
-public function getNum()
+    private $num;
+        private $nom;
+    private $numNationalite;
+        private $prenom;
+    public function getNum()
 {
     return $this->num;
 }
@@ -92,26 +92,27 @@ public static function findAllAut() :array
     }
     public static function add(Auteur $auteur): int {
 
-    $req = MonPdo::getInstance()->prepare("Insert into auteur (libelle,numNationalite) values(:libelle, :numNationalite)");
-    $lib = $auteur->getNom();
-    $numCont = $auteur->numNationalite();
-    $req->bindParam(':libelle', $lib);
-    $req->bindParam(':numNationalite', $numCont);
+    $req = MonPdo::getInstance()->prepare("Insert into auteur (prenom,nom,numNationalite) values(:prenom,:nom, :numNationalite)");
+    $nom = $auteur->getNom();
+    $prenom = $auteur->getPrenom();
+    $numNationalite = $auteur->getNumNationalite();
+    $req->bindParam(':prenom', $prenom);
+    $req->bindParam(':nom', $nom);
+    $req->bindParam(':numNationalite', $numNationalite);
     $nb = $req->execute();
     return $nb;
 }
     public static function update(Auteur $auteur) :int  
     {
-        $req = MonPdo::getInstance()->prepare("update auteur set libelle = :libelle, numNationalite=:numCont where num = :id");
-        $id = $auteur->getNum();
-        $prenom = $auteur->getPrenom();
-        $numCont = $auteur->numNationalite();
-        $nom = $auteur->numNationalite();
-     $req->bindParam(':numContinent', $numCont);
-     $req->bindParam(':id', $id);
-     $req->bindParam(':nom', $nom);
-     $req->bindParam(':prenom', $prenom);
-     
+        $req = MonPdo::getInstance()->prepare("UPDATE auteur set nom = :nom, prenom = :nom, numNationalite=:numNationalite WHERE num = :id");
+        $nom=$auteur->getNom();
+        $prenom=$auteur->getPrenom();
+        $num=$auteur->getNum();
+        $numNationalite=$auteur->getNumNationalite();
+        $req->bindParam('id',$num);
+        $req->bindParam('numNationalite',$numNationalite->getNum());
+        $req->bindParam('prenom',$prenom);
+        $req->bindParam('nom',$nom);
         $nb = $req->execute();
         return $nb;
     }
@@ -125,4 +126,15 @@ public static function delete(Auteur $auteur) :int
 
 }
 
+    public function getNumNationalite()
+    {
+        return $this->numNationalite;
+    }
+
+    public function setNumNationalite($numNationalite): self
+    {
+        $this->numNationalite = $numNationalite;
+
+        return $this;
+    }
 }

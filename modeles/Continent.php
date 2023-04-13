@@ -3,32 +3,15 @@
 class Continent 
     {
 
-        /**
-         * Numéro du Continent
-         *
-         * @var int
-         */
         private $num;
-        /**
-         * Libelle du Continent
-         *
-         * @var string
-         */
+
         private $libelle;
-        
-        /**
-         * Lit le Numero du Continent
-         *
-         * @return integer
-         */
+
         public function getNum() : int
         {
                 return $this->num;
         }
 
-         /**
-         * Set numéro du Continent
-         */
         public function setNum(int $num): self
         {
                 $this->num = $num;
@@ -46,12 +29,6 @@ class Continent
                 return $this->libelle;
         }  
 
-        /**
-         * Ecrit dans le Libellé
-         *
-         * @param string $libelle
-         * @return self
-         */
         public function setLibelle(string $libelle) : self
         {
                 $this->libelle = $libelle;
@@ -59,11 +36,6 @@ class Continent
                 return $this;
         }
 
-        /**
-         * Retourne l'ensemble des continent
-         *
-         * @return Continent[] tableau d'objet continent
-         */
         public static function findAll() : array
         {
             $req=MonPdo::getInstance()->prepare("select * from continent");
@@ -72,13 +44,6 @@ class Continent
             $lesResultats=$req->fetchAll();
             return $lesResultats;
         }
-
-        /**
-         * Trouve un continent par son num
-         *
-         * @param integer $id numéro du continent
-         * @return Continent objet continent trouvé
-         */
         public static function findById(int $id) :Continent
         {
             $req=MonPdo::getInstance()->prepare("select * from continent where num = :id");
@@ -90,12 +55,6 @@ class Continent
             
         }
 
-        /**
-         * Ajoute un continent
-         *
-         * @param Continent $continent continent à ajouter
-         * @return integer résultat(1 si l'opération à réussi, 0 dans le cas contraire)
-         */
         public static function Add(Continent $continent) :int
         {
             $req=MonPdo::getInstance()->prepare("insert into continent(libelle) values(:libelle)");
@@ -106,12 +65,6 @@ class Continent
              
         }
 
-        /**
-         *  modifié un continent
-         *
-         * @param Continent $continent continent à modifié
-         * @return integer résultat(1 si l'opération à réussi, 0 dans le cas contraire)
-         */
         public static function Update(Continent $continent) : int
         {
             $req=MonPdo::getInstance()->prepare("update continent set libelle= :libelle where num= :id");
@@ -123,12 +76,6 @@ class Continent
             return $nb; 
         }
 
-        /**
-         * supprimer un continent
-         *
-         * @param Continent $continent continent à supprimer
-         * @return integer résultat(1 si l'opération à réussi, 0 dans le cas contraire)
-         */
         public static function Delete(Continent $continent) : int
         {
             $req=MonPdo::getInstance()->prepare("delete from continent where num = :id");
@@ -137,9 +84,5 @@ class Continent
             $nb=$req->execute();
             return $nb; 
         }
-
-       
-
     }
-
 ?>

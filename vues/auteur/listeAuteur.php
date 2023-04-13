@@ -2,11 +2,11 @@
 
   <div class="row pt-3">
     <div class="col-9">
-      <h2>Liste des Nationalités</h2>
+      <h2>Liste des Auteurs</h2>
     </div>
     <div class="col-3">
       <a href="index.php?uc=auteurs&action=add" class='btn btn-success'>
-        <img src="./images/plus-circle.svg" width="20"><i class="fas fa-plus-circle"></i> Créer une nationalité
+        <img src="./images/plus-circle.svg" width="20"><i class="fas fa-plus-circle"></i> Créer un Auteur
       </a>
     </div>
   </div>
@@ -23,9 +23,9 @@
         <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
           <?php      
             echo "<option value='Tous'> Tous les continents</option>";
-            foreach($lesContinents as $continent) {
+            foreach($lesNationalites as $nationalite) {
               $selection = $nationalite->getNum() == intval($nationaliteSel) ? 'selected' : '';
-              echo "<option value='" . $nationalite->getNum() . "' " . $selection . ">" . $nationalite->getNom() . "</option>";
+              echo "<option value='" . $nationalite->getNum() . "' " . $selection . ">" . $nationalite->getLibelle() . "</option>";
             }
           ?>
         </select>
@@ -51,18 +51,17 @@
       </thead>
       <tbody>
         <?php
-          // Afficher la requête nationalite
           foreach($lesAuteurs as $auteur) {
             echo "<tr>";
+            echo "<td>" . $auteur->numero . "</td>";
             echo "<td>" . $auteur->nom . "</td>";
-            echo "<td>" . $nationalite->nom . "</td>";
-            echo "<td>" . $nationalite->prenom . "</td>";
-            echo "<td>" . $nationalite->libNationalite . "</td>";
+            echo "<td>" . $auteur->prenom . "</td>";
+            echo "<td>" . $auteur->libNationalite . "</td>";
             echo "<td>
-                    <a href='index.php?uc=auteurs&action=update&num=". $nationalite->numero ."' class='btn btn-success'>
+                    <a href='index.php?uc=auteurs&action=update&num=". $auteur->numero ."' class='btn btn-success'>
                       <img src='./images/modifier.svg'>
                     </a>
-                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer cette Auteur ?' data-suppr='index.php?uc=auteurs&action=delete&num=$nationalite->numero' class='btn btn-danger'>
+                    <a href='#modalSuppr' data-toggle='modal' data-message='Voulez-vous supprimer cette Auteur ?' data-suppr='index.php?uc=auteurs&action=delete&num=$auteur->numero' class='btn btn-danger'>
                       <img src='./images/supp.svg'><i class='fas fa-plus-circle'></i>
                     </a>
                   </td>";

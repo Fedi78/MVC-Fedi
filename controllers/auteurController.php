@@ -44,18 +44,18 @@ switch ($action) {
         $nationalite = Nationalite::findById($_POST['nationalite']);
 
         if (empty($_POST['num'])) {
-            $auteur->setNom($_POST['nom'])
-                ->setPrenom($_POST['prenom'])
-                ->setNationalite($nationalite);
-            $nb = Auteur::add($auteur);
-            $message = 'ajouté';
+            $auteur->setNom($_POST['nom']);
+            $auteur->setPrenom($_POST['prenom']);
+            $auteur->setNumNationalite(Nationalite::findById($_POST['nationalite']));
+            $nb=Auteur::add($auteur);
+            $message = "ajouter";
         } else {
-            $auteur->setNum($_POST['num'])
-                ->setNom($_POST['nom'])
-                ->setPrenom($_POST['prenom'])
-                ->setNationalite($nationalite);
-            $nb = Auteur::update($auteur);
-            $message = 'modifié';
+                $auteur->setNom($_POST['nom']);
+                $auteur->setPrenom($_POST['prenom']);
+                $auteur->setNum($_POST['num']);
+                $auteur->setNumNationalite(Nationalite::findById($_POST['nationalite']));
+                $nb=Auteur::update($auteur);
+                $message = "modifier";
         }
         if ($nb == 1) {
             $_SESSION['message'] = ["success" => "L'auteur a bien été $message"];
@@ -67,7 +67,5 @@ switch ($action) {
         exit();
         break;
 
-    default:
-        include('vues/404.php');
-        break;
+
 }
