@@ -1,8 +1,7 @@
-<div class="container">
+<div class="container mt-5">
 <h2 class='pt-4 text-center'><?php echo $mode ?> Un Auteur</h2>
-<div class="formulaire"> 
-<form action="index.php?uc=auteurs&action=validerForm" method="post">
-
+<form action="index.php?uc=auteurs&action=validerForm" method="post"
+class="col-md-6 offset-md-3 border border-primary p-3 rounded">
 <div class="form-group">
     <label for="nom">Nom</label>
         <input type="text" class="form-control" id="nom" placeholder="Saisir le nom" name="nom" value="<?php if ($mode == 'Modifier' && isset($auteur)) {
@@ -15,8 +14,6 @@
                 echo $auteur->getPrenom();
             } ?>">
         </div>
-            
-        <!-- CONTINENT -->
         <div class="form-group">
             <label for="nationalite">Nationalite</label>
     <select name="nationalite" class="form-control">
@@ -35,11 +32,9 @@
             } ?>" >
 
 <br>
-
 <div class="row">
-<div class="col"> 
-    <a href="index.php?uc=auteurs&action=list" class="btn nat">Revenir à la listes</a>
-    <button type="submit"><?php echo $mode; ?></button>
+<div class="col"><a href="index.php?uc=auteurs&action=list" class='btn btn-primary btn-block'>Revenir a La Liste</a> </div>
+<div class="col"><div class="col"><button type='submit' class='btn btn-success btn-block'> <?php echo $mode ?> </button> </div>
 </div>
 </div>
 </form>   

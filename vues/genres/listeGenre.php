@@ -1,11 +1,13 @@
 <div class="container mt-5">
-  <h3>Liste des Genres</h3>
-  <br>
-  <a href="index.php?uc=genres&action=add" class='btn btn-success'> <img src="./images/plus-circle.svg" width="25" > Créer un genre</a>
+<div class="row pt-4">
 
+<div class="col-9"><h2>Liste des Genres</h2></div>
+  <div class="col-3"><a href="index.php?uc=genres&action=add" class='btn btn-success'> <img src="./images/plus-circle.svg" width="25" > Créer un genre
+</a>
+  </div>
+</div>
 <br>
-<br>
-    <div class="container">
+
 
         <table class="table table-hover table-dark">
             <thead>
@@ -33,7 +35,6 @@
     ?>
 </table>
 </div>
-</div>
-</div>
+
 <br>
 <br>

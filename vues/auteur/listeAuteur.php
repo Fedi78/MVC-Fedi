@@ -37,7 +37,6 @@
 
   </form>
 
-  <!-- Tableaux -->
   <div class="container mt-5">
     <table class="table table-hover table-dark">
       <thead>
@@ -71,7 +70,5 @@
       </tbody>
     </table>
   </div>
-
-  <div class="dialecte">
     <br>
     <br

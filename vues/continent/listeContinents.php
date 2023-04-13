@@ -5,6 +5,8 @@
 <div class="col-3"><a href="index.php?uc=continents&action=add" class='btn btn-success'><i class="fas fa-plus-circle"> <img src="./images/plus-circle.svg" width="20" >  </i>Créer un Continent</a></div>
  
 </div>    
+<br>
+<br>
       <table class="table table-hover table-striped">
       <thead class="thead-dark">
           <tr class="d-flex">

@@ -6,10 +6,10 @@ switch ($action) {
         $prenom = "";
         $nationaliteSel = "Tous";
         if (!empty($_POST['nom']) || !empty($_POST['prenom']) || !empty($_POST['nationalite'])) {
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $nationaliteSel = $_POST['nationalite'];
-        }
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $nationaliteSel = $_POST['nationalite'];
+    }
         $lesNationalites = Nationalite::findAll2();
         $lesAuteurs = Auteur::findAll($nom, $prenom, $nationaliteSel);
 
@@ -44,11 +44,11 @@ switch ($action) {
         $nationalite = Nationalite::findById($_POST['nationalite']);
 
         if (empty($_POST['num'])) {
-            $auteur->setNom($_POST['nom']);
-            $auteur->setPrenom($_POST['prenom']);
-            $auteur->setNumNationalite(Nationalite::findById($_POST['nationalite']));
-            $nb=Auteur::add($auteur);
-            $message = "ajouter";
+            $auteur->setNom($_POST['nom'])
+                ->setPrenom($_POST['prenom'])
+                ->setNationalite($nationalite);
+            $nb = Auteur::add($auteur);
+            $message = 'ajouté';
         } else {
                 $auteur->setNom($_POST['nom']);
                 $auteur->setPrenom($_POST['prenom']);
